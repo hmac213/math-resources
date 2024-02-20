@@ -1,0 +1,113 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\graphicspath{ {./Images/} }
+
+\title{Late Invitational Math Exam}
+\author{LIME Team}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    \includegraphics*[width=10cm]{Lime}
+\end{center}
+
+\titlefont{Instructions}
+
+\normalfont{}
+\begin{enumerate}
+    \item This is a 15-question, 3-hour examination. Each answer is an integer between 000 and 999, inclusive. Your score is solely based on questions answered correctly, where each is worth exactly 1 point.
+    \item No aids other than writing utensils, erasers, scratch paper, rulers, and compasses are permitted during the exam. All other materials are strictly prohibited.
+    \item The exam may be taken at any time during the official testing window. If you wish to receive an official score, the exam must be taken under realistic AIME conditions (ie. submitted in 3 hours or less, no unpermitted aids used, etc.).
+\end{enumerate}
+
+\pagebreak
+
+\begin{problem}
+    A two-digit integer $\underline{a} \, \underline{b}$ is multiplied by 9. The resulting three-digit integer is of the form $\underline{a} \, \underline{c} \, \underline{b}$ for some digit $c$. Evaluate the sum of all possible $\underline{a} \, \underline{b}$.
+\end{problem}
+
+\begin{problem}
+    Five boys and six girls are to be seated in a row of eleven chairs so that they sit one at a time from one end to the other. The probability that there are no more boys than girls seated at any point during the process is $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Evaluate $m + n$.
+\end{problem}
+
+\begin{problem}
+    Point $P$ is situated inside regular hexagon $ABCDEF$ such that the feet from $P$ to $AB$, $BC$, $CD$, $DE$, $EF$, and $FA$ respectively are $G$, $H$, $I$, $J$, $K$, and $L$. Given that $PG = \frac{9}{2}$, $PI = 6$, and $PK = \frac{15}{2}$, the area of hexagon $GHIJKL$ can be written as $\frac{a\sqrt{b}}{c}$ for positive integers $a$, $b$, and $c$ where $a$ and $c$ are relatively prime and $b$ is not divisible by the square of any prime. Find $a + b + c$.
+\end{problem}
+
+\begin{problem}
+    The expected value of the square of the sum when rolling four standard six-sided dice can be written as $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$.
+\end{problem}
+
+\begin{problem}
+    The value of $x$ which satisfies
+    \[1 + \log_{x}(\floor{x}) = 2\log_{x}(\sqrt{3}\{x\})\]
+    can be written in the form $\frac{a + \sqrt{b}}{c}$, where $a$, $b$, and $c$ are positive integers and $b$ is not divisible by the square of any prime. Find $a + b + c$.
+    
+    \emph{Note: $\floor{x}$ denotes the greatest integer less than or equal to $x$ and $\{x\}$ denotes the fractional part of $x$.}    
+\end{problem}
+
+\begin{problem}
+    Triangle $ABC$ has side lengths $AB = 2$, $AC = 6.5$, and $BC = 7.5$. Points $M$ and $N$ lie on $AB$ and $AC$ respectively so that $MC$ and $NB$ intersect at point $O$. If triangles $MBO$ and $NCO$ both have area 1, the sum of all possible areas of triangle $AMN$ can be written as $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$. 
+\end{problem}
+
+\begin{problem}
+    Adam and Bettie are playing a game. They take turns generating a random number between 0 and 127 inclusive. The numbers they generate are scored as follows:
+    \begin{itemize}
+        \item If the number is zero, it receives no points.
+        \item If the number is odd, it receives one more point than the number one less than it.
+        \item If the number is even, it receives the same score as the number with half its value.
+    \end{itemize}
+    if Adam and Bettie both generate one number, the probability that they receive the same score is $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p$.
+\end{problem}
+
+\begin{problem}
+    The function $y = x^{2}$ is graphed in the $xy$-plane. A line from every point on the parabola is drawn to the point $(0, -10, a)$ in three-dimensional space. The locus of points where the lines intersect the $xz$-plane forms a closed path with area $\pi$. Given that $a = \frac{p\sqrt{q}}{r}$ for positive integers $p$, $q$, and $r$ where $p$ and $r$ are relatively prime and $q$ is not divisible by the square of any prime, find $p + q + r$.
+\end{problem}
+
+\begin{problem}
+    Find the sum of all positive integers $n$ such that the values of $\floor{\frac{n}{3}}$, $\floor{\frac{n}{4}}$, and $\floor{\frac{n}{5}}$ form an arithmetic sequence.
+\end{problem}
+
+\begin{problem}
+    One face of a tetrahedron has sides of length 3, 4, and 5. The tetrahedron's volume is 24 and surface area is $n$. When $n$ is minimized, it can be expressed in the form $n = a\sqrt{b} + c$, where $a$, $b$, and $c$ are positive integers and $b$ is not divisible by the square of any prime. Evaluate $a + b + c$.
+\end{problem}
+
+\begin{problem}
+    What is the least positive integer $n$ such that $25^{n} + 16^{n}$ leaves a remainder of 1 when divided by 121?
+\end{problem}
+
+\begin{problem}
+    For a sequence $s = (s_{1}, s_{2}, \dots, s_{n})$, define
+    \[F(s) = \sum_{i = 1}^{n - 1} (-1)^{i + 1}(s_{i} - s_{i + 1})^{2}.\]
+
+    Consider the sequence $S = (2^{1}, 2^{2}, \dots, 2^{1000})$. Let $R$ be the sum of all 
+    $F(m)$ for all non-empty \emph{subsequences} $m$ of $S$. Find the remainder when $R$ is divided by 1000.
+
+    \emph{Note: A subsequence is a sequence that can be obtained from another sequence by deleting some non-negative number of values without changing the order.}
+\end{problem}
+
+\begin{problem}
+    The Fibonacci Sequence is defined as follows: $F_{0} = 0$, $F_{1} = 1$, and $F_{n} = F_{n - 1} + F_{n - 2}$ for integers $n \geq 2$. The sum
+    \[S = \sum_{n = 0}^{\infty} \frac{F_{n}^{2}}{9^{n}}\]
+    can be written as $\frac{m}{n}$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.
+\end{problem}
+
+\begin{problem}
+    The roots of the polynomial $P(x) = x^{4} - 10x^{3} + 35x^{2} - 51x + 26$ form the side lengths of a quadrilateral. The maximum area of such a quadrilateral is of the form $\sqrt{n}$ for some positive integer $n$. Find $n$.
+\end{problem}
+
+\begin{problem}
+    Triangle $ABC$ satisfies $\tan{A} \cdot \tan{B} = 3$ and $AB = 5$. Let $G$ and $O$ be the centroid and circumcenter of $ABC$ respectively. The maximum possible area of triangle $CGO$ can be written as $\frac{a\sqrt{b}}{c}$ for positive integers $a$, 
+    $b$, and $c$ with $a$ and $c$ relatively prime and $b$ not divisible by the square of any prime. Find $a + b + c$.
+\end{problem}
+
+\end{document}

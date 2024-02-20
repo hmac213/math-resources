@@ -1,0 +1,36 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+
+\title{Sarthak Log Floor Problem}
+
+\begin{document}
+
+\begin{problem}
+    The value of $x$ which satisfies
+    \[1 + \log_{x}(\floor{x}) = 2\log_{x}(\sqrt{3}\{x\})\]
+    can be written in the form $\frac{a + \sqrt{b}}{c}$, where $a$, $b$, and $c$ are relatively prime integers, and $b$ is not divisible by the square of any prime. Find $a + b + c$.
+    
+    Here, $\floor{x}$ denotes the greatest integer less than or equal to $x$ and $\{x\}$ denotes the fractional part of $x$.    
+\end{problem}
+
+\begin{soln}
+    Begin by simplifying the equation to
+    \[x\floor{x} = 3\{x\}^{2}.\]
+    For the sake of simplicity, we let $\floor{x} = n$ and $\{x\} = p$. So,
+    \[(n + p)(n) = 3p^{2}\]
+    \[n^{2} + np = 3p^{2}\]
+    \[3p^{2} - np - n^{2} = 0.\]
+    We now solve for $p$ with quadratic formula:
+    \begin{align*}
+        p &= \frac{n \pm \sqrt{n^{2} + 12n^{2}}}{6} \\
+        &= \frac{n \pm \sqrt{13}n}{6}.
+    \end{align*}
+    Since $p$ is non-negative,
+    \[p = \frac{1 + \sqrt{13}}{6}n.\]
+    Because $3p^{2} < 3$, $n^{2} + np < 3$ as well, meaning $n < 3$. If $n = 0$, then so does $p$ and the logarithms are undefined. If $n = 2$, then $p = \frac{1 + \sqrt{13}}{3}$, which is greater than 1 and thus, invalid. So, $n = 1$ and $p = \frac{1 + \sqrt{13}}{6}$, making $x = \frac{7 + \sqrt{13}}{6}$. It follows that $a + b + c = 7 + 13 + 6 = 26$.
+\end{soln}
+
+\end{document}

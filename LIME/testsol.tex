@@ -1,0 +1,209 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Bellarmine Math Club Mock AIME Solutions}
+\author{Henry McNamara}
+\date{November 15, 2023}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{problem}
+    A two-digit integer $\underline{a} \, \underline{b}$ is multiplied by 9. The resulting three-digit integer is of the form $\underline{a} \, \underline{c} \, \underline{b}$ for some digit $c$. Evaluate the sum of all possible $\underline{a} \, \underline{b}$.
+\end{problem}
+
+\begin{soln}
+    Consider the equation
+    \[90a + 9b = 100a + 10c + b\]
+    \[4b = 5a + 5c.\]
+    It follows that $b = 5$ or $b = 0$. If $b = 0$, then $a$ is also zero and there are no solutions. So we substitute 5 for $b$, yielding
+    \[4 = a + c.\]
+    We see that there are four possible values for $a$, yielding 15, 25, 35, and 45 as solutions. The requested sum is then $120$.
+\end{soln}
+
+\begin{problem}
+    The value of $x$ which satisfies
+    \[1 + \log_{x}(\floor{x}) = 2\log_{x}(\sqrt{3}\{x\})\]
+    can be written in the form $\frac{a + \sqrt{b}}{c}$, where $a$, $b$, and $c$ are relatively prime integers, and $b$ is not divisible by the square of any prime. Find $a + b + c$.
+    
+    Here, $\floor{x}$ denotes the greatest integer less than or equal to $x$ and $\{x\}$ denotes the fractional part of $x$.    
+\end{problem}
+
+\begin{soln}
+    Begin by simplifying to get rid of the logarithms. What results is
+    \[x\floor{x} = 3\{x\}^{2}.\]
+    For simplicity, let $\floor{x} = n$ and $\{x\} = p$. We then solve for $p$ in terms of $n$:
+    \[n(n + p) = 3p^{2}\]
+    \[n^{2} + pn = 3p^{2}\]
+    \[3p^{2} - np - n^{2} = 0\]
+    \[p = \frac{n \pm \sqrt{13}n}{6}.\]
+    From the bounds of $\{x\}$, we know that $0 \leq p < 1$. This means
+    \[p = \frac{n + \sqrt{13}n}{6}\]
+    as the other solution is always negative. Then, for $p$ to remain in these bounds while ensuring the logarithms are still defined, we must have that $n = 1$. So, $x = \frac{1 + \sqrt{13}}{6}$. The desired sum is then $1 + 13 + 6 = 20$. 
+\end{soln}
+
+\begin{problem}
+    Triangle $ABC$ has side lengths $AB = 4$, $AC = 5$, and $BC = 6$. Points $M$ and $N$ lie on $AB$ and $AC$ respectively so that $MC$ and $NB$ intersect at point $O$. If triangles $MBO$ and $NCO$ both have area 1, evaluate the area of triangle $AMN$.
+\end{problem}
+
+\begin{soln}
+    First, we evalute the area of $ABC$ to be
+    \begin{align*}
+        [ABC] &= \sqrt{\frac{15}{2}\left(\frac{7}{2}\right)\left(\frac{5}{2}\right)\left(\frac{3}{2}\right)} \\
+        &= \frac{15\sqrt{7}}{4}
+    \end{align*}
+    From the two given triangles having equal area, we know that $MNCB$ is a trapezoid, meaning $MN \parallel BC$. So,
+    \[\frac{[AMN]}{[ABC]} = \]
+\end{soln}
+
+\begin{problem}
+    Point $P$ is situated inside hexagon $ABCDEF$ with center $O$ such that the feet from $P$ to $AB$, $BC$, $CD$, $DE$, $EF$, and $FA$ respectively are $G$, $H$, $I$, $J$, $K$, and $L$. Given that $PG = \frac{9}{2}$, $PI = 6$, $PK = \frac{15}{2}$ and $PO = \sqrt{3}$, the area of hexagon $GHIJKL$ can be written as $\frac{a\sqrt{b}}{c}$. What is $a + b + c$?
+\end{problem}
+
+\begin{soln}
+
+\end{soln}
+
+\begin{problem}
+    Let $H$ be the point where the three altitudes of $\triangle ABC$ intersect. If $\angle C = 30\dg$ and $CH = 625$, the length of $AB$ can be written in the form $\frac{a\sqrt{b}}{c}$ where $a$ and $c$ are relatively prime positive integers and $b$ is not divisible by the square of any prime. Evaluate $a + b + c$.
+\end{problem}
+
+\begin{soln}
+    To solve this problem, we utilize complex numbers. Place the circumcenter of $\triangle ABC$ at the origin and let the circumradius be $r$. Start with $h = a + b + c$. It is known that
+    \[\abs{h} = \abs{a + b + c} \implies \abs{c - h} = \abs{a + b} = 625.\]
+    For a given radius $r$ the length of $AB$ is fixed by the inscribed angle theorem. It turns out that $AB$ is a chord from an arc of degree measure $\frac{\pi}{6}$. So, $AB = r$. With this in mind, we wish to find $r$. WLOG, assume that $a = r$ and $b = \frac{1}{2}r + \frac{\sqrt{3}}{2}ri$. So,
+    \begin{align*}
+        \abs{a + b} &= \sqrt{\left(\frac{3}{2}r\right)^{2} + \left(\frac{\sqrt{3}}{2}r\right)^{2}} \\
+        &= \sqrt{\frac{9}{4}r^{2} + \frac{3}{4}r^{2}} \\
+        &= \sqrt{3}r.
+    \end{align*}
+    This means that with $CH = 625$, $AB = \frac{625\sqrt{3}}{3}$, giving a final answer of $631$.
+\end{soln}
+
+\begin{problem}
+    The function $y = x^{2}$ is graphed in the $xy$-plane. A line from every point on the parabola is drawn to the point $(0, -10, a)$ in three-dimensional space. The locus of points $\mathcal{P}$ where the lines intersect the $xz$-plane forms a closed path with area $\pi$. Given that $a = \frac{p\sqrt{q}}{r}$, evaluate $p + q + r$.
+\end{problem}
+
+\begin{soln}
+    The path formed is an ellipse with top-most point at the horizon line and bottom-most point at the origin. The width of the ellipse is equal to half the width of the parabola at the points whose lines intersect the $xz$-plane halfway above the horizion line. Using the fact that the horizon line is at $z = a$, we have that the width is $\sqrt{10}$. So, the area of the ellipse is $\frac{a}{2} \cdot \frac{\sqrt{10}}{2} \cdot \pi = \frac{a\sqrt{10}}{4} \cdot \pi$. So, $a = \frac{2\sqrt{10}}{5}$ and $p + q + r = 17$.
+\end{soln}
+
+\begin{problem}
+    Triangle $ABC$ with $AB = BC = 22$ has circumcircle $\omega$. The line through $C$ and the midpoint $M$ of $AB$ intersects $\omega$ at point $X \neq C$ and the line through $B$ and the center of $\omega$ intersects $\omega$ at point $Y \neq B$. If $XY$ intersects $AB$ at the foot of the altitude from $C$, then $MX^{2}$ can be written in the form $\frac{m}{n}$ for relatively prime positive integers $m$ and $n$. Evaluate $m + n$.
+\end{problem}
+
+\begin{soln}
+    First, we establish that $BGDX$ is a cyclic quadrilateral where $G$ is the centroid of $ABC$ and $D$ is the foot of the alitude from $C$ to $AB$. This means that
+    \[\frac{BM}{XM} = \frac{BG}{XD} = \frac{GM}{DM}\]
+    \[\frac{11}{XM} = \frac{BG}{XD} = \frac{GM}{DM}\]
+
+    We also have that
+    \[(A,B,;D,M) = (A,B;Y,C)\]
+    \[\frac{AD}{BD} / \frac{AM}{BM} = \frac{AY}{BY} / \frac{AC}{BC}\]
+    \[\frac{AD}{BD} \cdot \frac{BM}{AM} = \frac{AY}{BY} \cdot \frac{BC}{AC}\]
+    \[\frac{AD}{BD} = \frac{AY}{BY} \cdot \frac{22}{AC}\]
+
+    Notice that $XY$ is the angle bisector of $\angle AXM$, meaning
+    \[\frac{AD}{AX} = \frac{MD}{MX}.\]
+
+    Combining findings from cyclic quadrilateral $BGDX$ with findings from the above cross ratio, we see that
+    \[\frac{MD}{MX} = \frac{GM}{BM} = \frac{AD}{AX}\]
+
+    We have that $BD = \frac{44}{3}$. That makes $AD = \frac{22}{3}$. Now, going back up to the cross ratio, we have that $\frac{AD}{BD} = \frac{1}{2}$, and
+    \[\frac{1}{2} = \frac{AY}{BY} \cdot \frac{22}{AC}\]
+
+    This also tells us that
+    \[\frac{BH}{HY} = 2\]
+
+    The answer is $363 + 7 = 370$.
+\end{soln}
+
+\begin{problem}
+    The Fibonacci Seqence is defined as follows: $F_{0} = 0$, $F_{1} = 1$, and $F_{n} = F_{n - 1} + F_{n - 2}$ for integers $n \geq 2$. The sum
+    \[S = \sum_{n = 0}^{\infty} \frac{F_{n}^{2}}{9^{n}}\]
+    can be written as $\frac{m}{n}$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.
+\end{problem}
+
+\begin{soln}
+    We use Binet's formula to represent each term as
+    \begin{align*}
+        F_{n}^{2} &= \frac{(\phi^{n} - (1 - \phi)^{n})^{2}}{5} \\
+        &= \frac{\phi^{2n} - 2\phi^{n}(1 - \phi)^{n} + (1 - \phi)^{2n}}{5} \\
+        &= \frac{\phi^{2n} - 2(\phi - \phi^{2})^{n} + (1 - \phi)^{2n}}{5}
+    \end{align*}
+    which makes the sum equal to
+    \begin{align*}
+        S &= \frac{1}{5}\sum_{n = 0}^{\infty} \frac{\phi^{2n} - 2(\phi - \phi^{2})^{n} + (1 - \phi)^{2n}}{9^{n}} \\
+        &= \frac{1}{5}\sum_{n = 0}^{\infty} \frac{\phi^{2n}}{9^{n}} - \frac{2}{5}\sum_{n = 0}^{\infty} \frac{(\phi - \phi^{2})^{n}}{9^{n}} + \frac{1}{5}\sum_{n = 0}^{\infty} \frac{(1 - \phi)^{2n}}{9^{n}} \\
+        &= \frac{1}{5} \cdot \frac{1}{1 - \frac{\phi^{2}}{9}} - \frac{2}{5} \cdot \frac{1}{1 - \frac{\phi - \phi^{2}}{9}} + \frac{1}{5} \cdot \frac{1}{1 - \frac{(1 - \phi)^{2}}{9}} \\
+        &= \frac{1}{5} \cdot \frac{1}{1 - \frac{3 + \sqrt{5}}{18}} - \frac{2}{5} \cdot \frac{1}{1 + \frac{1}{9}} + \frac{1}{5} \cdot \frac{1}{1 - \frac{3 - \sqrt{5}}{18}} \\
+        &= \frac{1}{5} \cdot \frac{1}{\frac{15 - \sqrt{5}}{18}} - \frac{2}{5} \cdot \frac{9}{10} + \frac{1}{5} \cdot \frac{1}{\frac{15 + \sqrt{5}}{18}} \\
+        &= \frac{\frac{15 + \sqrt{5}}{18}}{\frac{275}{81}} - \frac{9}{25} + \frac{\frac{15 - \sqrt{5}}{18}}{\frac{275}{81}} \\
+        &= \frac{30 \cdot 81}{275 \cdot 18} - \frac{9}{25} \\
+        &= \frac{54}{110} - \frac{9}{25} \\
+        &= \frac{36}{275}.
+    \end{align*}
+    So, $m + n = 311$.
+\end{soln}
+
+\begin{problem}
+    For a sequence $s = (s_{1}, s_{2}, \dots, s_{n})$, define
+    \[F(s) = \sum_{i = 1}^{n - 1} (-1)^{i + 1}(s_{i} - s_{i + 1})^{2}.\]
+
+    Consider the sequence $S = (2^{1}, 2^{2}, \dots, 2^{1000})$. Let $R$ be the sum of all 
+    $F(m)$ for all non-empty \emph{subsequences} $m$ of $S$. Find the remainder when $R$ is divided by 1000.
+
+    \emph{Note: A subsequence is a sequence that can be obtained from another sequence by deleting some non-negative number of values without changing the order.}
+\end{problem}
+
+\begin{soln}
+
+\end{soln}
+
+\begin{problem}
+    One face of a tetrahedron has sides of length 3, 4, and 5. The tetrahedron's volume is 24 and surface area is $n$. If $n = a\sqrt{b} + c$, where $a$, $b$, and $c$ are integers and $b$ is not divisible by the square of any prime, evaluate $a + b + c$.
+\end{problem}
+
+\begin{soln}
+    Let the base triangle be $ABC$ so that $AB = 3$, $AC = 4$, and $BC = 5$. Let $D$ be the final vertex of the tetrahedron and $E$ be the foot from $D$ to the plane defined by $ABC$. Finally, let the distance from $E$ to $AB$, $AC$, and $BC$ be $x$, $y$, and $z$ respectively and the altitudes from $D$ to $AB$, $AC$, and $BC$ be $p$, $q$, and $r$.
+\end{soln}
+
+\begin{problem}
+    A function $f$ defined across the real numbers satisfies
+    \[f(x + y) = f(x) + f(y) + f(xy).\]
+    Find $f(2024)$.
+\end{problem}
+
+\begin{soln}
+    The answer would be 0.
+\end{soln}
+
+\begin{problem}
+    A polynomial $p$ defined across the real numbers satisfies $p(1) = 1$ and
+    \[p(x + y) = p(x) + p(y) + xy.\]
+    Find $p(2024)$.
+\end{problem}
+
+\begin{soln}
+    If $y = 0$, we see that
+    \[f(x) = f(x) + f(0) \implies f(0) = 0.\]
+    In general,
+    \[f(2x) = 2f(x) + x^{2}\]
+    If $y = -x$ we see that
+    \[f(x) + f(-x) = x^{2}.\]
+    Now, if $f$ has even powers of $x$, then they will appear in the above sum. So, $f$ only has $\frac{1}{2}x^{2}$ as an even power. The rest are odd. Let $g(x) = f(x) - \frac{1}{2}x^{2}$. We have that
+    \[g(x) + g(-x) = 0\]
+    and
+    \[g(x + y) + \frac{1}{2}(x + y)^{2} = g(x) + g(y) + xy + \frac{1}{2}(x^{2} + y^{2})\]
+    \[g(x + y) = g(x) + g(y).\]
+    Question has already been asked.
+\end{soln}
+
+\end{document}
