@@ -1,8 +1,0 @@
-# ignore all auto generatd LaTeX residual files
-*.log
-*.aux
-*.out
-*.pre
-*.asy
-*.pdf
-*.png
