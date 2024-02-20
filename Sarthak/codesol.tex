@@ -1,0 +1,49 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+
+\title{Sarthak Code Problem}
+
+\begin{document}
+
+For a sequence $s = (s_{1}, s_{2}, \dots, s_{n})$, define
+\[F(s) = \sum_{i = 1}^{n - 1} (-1)^{i + 1}(s_{i} - s_{i + 1})^{2}.\]
+
+Consider the sequence $S = (2^{1}, 2^{2}, \dots, 2^{1000})$. Let $R$ be the sum of all 
+$F(m)$ for all non-empty \emph{subsequences} $m$ of $S$. Find the remainder when $R$ is divided by 1000.
+
+\emph{Note: A subsequence is a sequence that can be obtained from another sequence by deleting some non-negative number of values without changing the order.}
+
+\begin{soln}
+
+    Immediately take notice of the alternating sum. This leads us to believe that we can force a lot of the terms to cancel out. Consider $2^{a}$ and $2^{b}$ adjascent to each other in some subsequence, with $a < b$.
+
+    \begin{claim}
+        If $a \neq 1$, then the signed sum of the squared difference between $2^{a}$ and $2^{b}$ across all subsequences is equal to zero.
+    \end{claim}
+
+    \begin{proof}
+        Assume that $2^{a}$ and $2^{b}$ are included in some subsequence $k$. Then, before $2^{a}$ there is another subsequence of at most $a - 1$ powers of 2 that we call $j$. It follows that there are $2^{a - 1}$ different possible combinations of elements in $j$. As such, it is clear that half of these will be even and half will be odd. So, the signed sum of the squared difference between $2^{a}$ and $2^{b}$ will cancel out across all possible $m$.
+    \end{proof}
+
+    \begin{claim}
+        If $a = 1$, then the signed sum of the squared difference between $2^{a}$ and $2^{b}$ is equal to blank.
+    \end{claim}
+
+    \begin{proof}
+        Following from the previous proof, we observe that the signed sum of the squared differences between 2 and $2^{b}$ is always going to be positive because the only possible subsequence $l$ is a null sequence. Now, we first want to find the number of subsequences in which 2 and $2{b}$ are adjascent. This happens when they are both included and all powers of 2 between them are not included. So $2^{1000 - b}$ will contain $2^{b}$ adjascent to 2. Next, we asses the square of their difference:
+        \[(2^{b} - 2)^{2} = 2^{2b} - 2^{b + 2} + 4.\]
+        So, the sum we wish to evaluate modulo 1000 is
+        \begin{align*}
+            R &= \sum_{b = 2}^{1000} (2^{2b} - 2^{b + 2} + 4) \cdot 2^{1000 - b} \\
+            &= \sum_{b = 2}^{1000} (2^{1000 + b} - 2^{1002} + 2^{1002 - b}) \\
+            &= 2^{1000} \cdot \sum_{b = 2}^{1000} (2^{b} - 4 + 2^{2 - b}) \\
+            &= 2^{1000} \cdot 2^{1000} - 2 - 3996
+        \end{align*}
+        
+    \end{proof}
+\end{soln}
+
+\end{document}
