@@ -1,4 +1,4 @@
-# ignore all auto generatd LaTeX residual files
+# ignore all auto generated LaTeX residual files
 *.log
 *.aux
 *.out
