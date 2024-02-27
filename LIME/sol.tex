@@ -22,12 +22,10 @@
 
 \section{Statistics}
 
-\textbf{Number of Submissions:} 22 \\
-\textbf{Mean:} 5.09 \\
-\textbf{Median:} 4.50 \\
-\textbf{Minimum:} 0 \\
-\textbf{Maximum:} 12 \\
-\textbf{Problem Solve Rates:} \\
+\subsection{Item Difficulty}
+
+The number of participants who answered each problem correctly is shown below.
+
 \begin{center}
     \begin{asy}
         size(10cm);
@@ -35,28 +33,66 @@
         real[] t;
 
         x = 1;
-        y = 0.75;
+        y = 0.5;
 
-        t[1] = 18;
-        t[2] = 10;
-        t[3] = 8;
-        t[4] = 11;
-        t[5] = 17;
-        t[6] = 5;
-        t[7] = 12;
-        t[8] = 6;
+        t[1] = 22;
+        t[2] = 12;
+        t[3] = 13;
+        t[4] = 12;
+        t[5] = 18;
+        t[6] = 6;
+        t[7] = 16;
+        t[8] = 7;
         t[9] = 7;
-        t[10] = 2;
+        t[10] = 4;
         t[11] = 8;
         t[12] = 1;
         t[13] = 3;
-        t[14] = 3;
-        t[15] = 1;
+        t[14] = 5;
+        t[15] = 2;
 
         for(int i = 1; i < 16; ++i) {
             draw(((i - 1)*x,0) -- (i*x,0) -- (i*x,t[i]*y) -- ((i - 1)*x,t[i]*y) -- cycle);
             label(string(i),((i - 0.5)*x,0), S);
             label(string(t[i]),((i - 0.5)*x,t[i]*y), N);
+        }
+    \end{asy}
+\end{center}
+
+\subsection{Score Distribution}
+
+The number of participants receiving each score is shown below.
+
+\begin{center}
+    \begin{asy}
+        size(10cm);
+        real x,y;
+        real[] t;
+
+        x = 1;
+        y = 2;
+
+        t[0] = 1;
+        t[1] = 4;
+        t[2] = 3;
+        t[3] = 1;
+        t[4] = 4;
+        t[5] = 3;
+        t[6] = 2;
+        t[7] = 3;
+        t[8] = 2;
+        t[9] = 2;
+        t[10] = 0;
+        t[11] = 1;
+        t[12] = 1;
+        t[13] = 0;
+        t[14] = 0;
+        t[15] = 0;
+
+        for(int i = 0; i < 16; ++i) {
+            draw(((i)*x,0) -- ((i + 1)*x,0) -- ((i + 1)*x,t[i]*y) -- (i*x,t[i]*y) -- cycle);
+            label(string(i),((i + 0.5)*x,0), S);
+            label(string(t[i]),((i + 0.5)*x,t[i]*y), N);
         }
     \end{asy}
 \end{center}
@@ -74,11 +110,11 @@ Here, we look at where we would place each problem if we were to rewrite the moc
         \# & Description & New Spot \\
         \hline
         1 & Palindromes & 1 \\
-        2 & Seating Arrangements & 8 \\
-        3 & Hexagon $ABCDEF$ & 7 \\
+        2 & Seating Arrangements & 7 \\
+        3 & Hexagon $ABCDEF$ & 8 \\
         4 & Expected Value Dice & 7 \\
         5 & Logs and Floors & 5 \\
-        6 & Equal Area Triangles & 9 \\
+        6 & Equal Area Triangles & 10 \\
         7 & Number Game & 7 \\
         8 & Perspective Parabola & 10 \\
         9 & Sequential Floors & 9 \\
@@ -415,8 +451,8 @@ So, $p + q + r = \boxed{017}$.
 
 {\problemfont Solution Author} vanstraelen (AoPS)
 
-If you do not realize that the closed path is an ellipse, the problem can be solved as follows. Let $B = (0, -10, a)$ and each point on the parabola be some point $A = (\lambda, \lambda^{2}, 0)$. Using parametric equations, we get
-\[AB = \begin{cases}
+If you do not realize that the closed path is an ellipse, the problem can be solved as follows. Let $B = (0, -10, a)$ and each point on the parabola be some point $A = (\lambda, \lambda^{2}, 0)$. Using parametric equations, we get the equation of the line $\ell$ through $A$ and $B$.
+\[\ell = \begin{cases}
     x = \lambda t \\
     y = -10 + (\lambda^{2} + 10)t \\
     z = a - at
