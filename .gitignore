@@ -6,3 +6,6 @@
 *.asy
 *.pdf
 *.png
+*.fdb_latexmk
+*.fls
+*.gz
