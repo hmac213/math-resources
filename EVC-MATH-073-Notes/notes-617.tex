@@ -1,6 +1,9 @@
 \documentclass[12pt]{scrartcl}
 
 \usepackage[sexy]{evan}
+\usepackage{parskip}
+
+\newcommand*{\magnitude}[1]{\abs{\abs{#1}}}
 
 \title{Notes}
 \date{June 17}
@@ -11,8 +14,116 @@
 
 \pagebreak
 
-\begin{theorem}
-    This is the first theorem, woo!
-\end{theorem}
+\section{Description}
+
+Covering 3-dimensional space and vectors.
+
+\section{Notes}
+
+\subsection{3-Dimensional Space}
+
+\begin{definition}[Euclidian Space]
+    This is your standard $(x, y, z)$ coordinate system. Basically just an extension of the 2-dimensional plane into the third dimension.
+\end{definition}
+
+\begin{definition}[Cylindrical Coordinates]
+    Points are represented as $(x, y, \theta)$, where $x$ is the horizontal distance from the origin, $y$ is the vertical distance, and $\theta$ is the azimuth angle.
+\end{definition}
+
+\begin{definition}[Spherical Coordinates]
+    Points are represented as $(r, \theta, \gamma)$ where $r$ is the distance from the origin, $\theta$ is the elevation angle (I think), and $\gamma$ is the azimuth angle (Again, I think).
+\end{definition}
+
+\begin{definition}[Plane in 3D Space]
+    A plane in 3D space can be represented by the equation
+    \[ax + by + cz = k\]
+    where the vector $\left<a, b, c\right>$ is the normal vector to the plane and $k$ is a displacement constant.
+\end{definition}
+
+\begin{definition}[Real Spaces]
+    The notation $\RR_{n}$ denotes the space of real numbers in $n$ dimensions.
+\end{definition}
+
+\begin{example}
+    Find the surface bounded by
+    \[x^{2} + y^{2} + z^{2} = 4y.\]
+
+    \begin{soln}
+        We complete the square on $y$ to get that
+        \[x^{2} + (y - 2)^{2} + z^{2} = 4\]
+        and see that what results is a spherical shell with radius 2 centered at $(0, 2, 0)$.
+    \end{soln}
+\end{example}
+
+\begin{example}
+    Find the volume of the region bounded by the intersection of $x^{2} + y^{2} + z^{2} = 4$ and $(x - 2)^{2} + (y + 1)^{2} + (z - 2)^{2}$.
+
+    \begin{soln}
+        The distance between the two spheres is 3, and both have a radius of two. So, we can take the volume revolution of one circle centered at the origin from $x = \frac{3}{2}$ to $x = 2$ and double the result. So,
+        \begin{align*}
+            V &= \pi\int_{\frac{3}{2}}^{2} 4 - x^{2}dx \\
+            &= 4\pi x - \frac{\pi}{3}x^{3} \biggr\rvert_{x = \frac{3}{2}}^{x = 2} \\
+            &= \frac{11\pi}{24}.
+        \end{align*}
+        We now double the result to yield a final answer of $\frac{11\pi}{12}$.
+    \end{soln}
+\end{example}
+
+\subsection{Vectors}
+
+\begin{definition}[Vector]
+    A vector is a direction and magnitude in some $n$-dimensional space.
+\end{definition}
+
+\begin{definition}[Vector Component Form]
+    For a vector $\vec{v}$ in $\RR_{n}$ space, the component form of $\vec{v}$ is
+    \[\vec{v} = \left<a_{1}, a_{2}, \dots, a_{n}\right>.\]
+\end{definition}
+
+\begin{definition}[Vector Magnitude]
+    A vector $\vec{v} = \left<a_{1}, a_{2}, \dots, a_{n}\right>$ in $\RR_{n}$ space has magnitude
+    \[\magnitude{\vec{v}} = \sqrt{a_{1}^{2} + a_{2}^{2} + \cdots + a_{n}^{2}}\]
+\end{definition}
+
+\begin{remark}[Vector and Scalar Similarity]
+    Vectors act much like scalars in many ways. Their addition and subtraction are commutative and associative but their multiplication is more complicated, given the two types (dot product and cross product). However, multiplication of a vector by a scalar and the vector dot product are commutative, associative, and distributive.
+\end{remark}
+
+\begin{definition}[Vector Addition]
+    Given two vectors $\vec{v} = \left<a_{1}, a_{2}, \dots, a_{n}\right>$ and $\vec{u} = \left<b_{1}, b_{2}, \dots, b_{n}\right>$ have sum,
+    \[\vec{v} + \vec{u} = \left<a_{1} + b_{1}, a_{2} + b_{2}, \dots a_{n} + b_{n}\right>.\]
+
+    \textbf{Note:} The two vectors need not have the same dimensionality. All missing dimensions in the vector with lower dimensionality can be treated as zero.
+\end{definition}
+
+\begin{definition}[Vector Subtraction]
+    Vector subtraction is defined analogously to vector addition.
+\end{definition}
+
+\begin{definition}[Vector Multiplication by a Scalar]
+    For a vector $\vec{v} = \left<a_{1}, a_{2}, \dots, a_{n}\right>$ and a constant $k$,
+    \[k\vec{v} = \left<ka_{1}, ka_{2}, \dots, ka_{n}\right>.\]
+\end{definition}
+
+\begin{corollary}[Unit Vector Form]
+    From the above, it follows that we can represent a vector as the sum of unit vectors. For example, a 3-dimensional vector $\vec{v} = \left<x, y, z\right>$ can be written as $\vec{v} = x\hat{\imath} + y\hat{\jmath} + z\hat{k}$ where $\hat{\imath} = \left<1, 0, 0\right>$, $\hat{\jmath} = \left<0, 1, 0\right>$, and $\hat{k} = \left<0, 0, 1\right>$.
+\end{corollary}
+
+\begin{definition}[Unit Vectors]
+    The unit vector $\hat{v}$ in the direction of vector $\vec{v}$ is
+    \[\hat{v} = \frac{1}{\magnitude{\vec{v}}}\vec{v}.\]
+\end{definition}
+
+\begin{definition}[Vector Dot Product]
+    The dot product of two vectors $\vec{v} = \left<a_{1}, a_{2}, \dots, a_{n}\right>$ and $\vec{u} = \left<b_{1}, b_{2}, \dots, b_{n}\right>$ is
+    \[\vec{v} \cdot \vec{u} = a_{1}b_{1} + a_{2}b_{2} + \cdots + a_{n}b_{n}.\]
+    This dot product can also be expressed in the form
+    \[\vec{v} \cdot \vec{u} = \magnitude{\vec{v}}\magnitude{\vec{u}}\cos\theta\]
+    where $\theta$ is the angle between the two vectors.
+\end{definition}
+
+\begin{remark}
+    Note that the dot product will produce a zero result if and only if the two vectors are perpendicular or one of the vectors is a zero-vector.
+\end{remark}
 
 \end{document}
