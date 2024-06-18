@@ -1,0 +1,107 @@
+\documentclass[12pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage{parskip}
+
+\title{Class Notes}
+\date{June 18}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\section{Description}
+
+Continued look at vectors.
+
+\section{Notes}
+
+Aside from the dot product, there is one more product to consider between vectors. This, of course, is the cross product, an operation that results in a vector output and does not follow the typical rules of multiplication that the cross product follows. For example, $\vec{a} \times \vec{b} \neq \vec{b} \times \vec{a}$ in most cases. In fact, $\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})$.
+
+\begin{definition}[Vector Cross Product]
+    In $\RR_{3}$ space, the cross product of $\vec{u} = \left<a_{1}, a_{2}, a_{3}\right>$ and $\vec{v} = \left<b_{1}, b_{2}, b_{3}\right>$ is
+    \[\vec{u} \times \vec{v} = \det \begin{bmatrix} \hat{\imath} & \hat{\jmath} & \hat{k} \\ a_{1} & a_{2} & a_{3} \\ b_{1} & b_{2} & b_{3} \end{bmatrix}.\]
+\end{definition}
+
+\begin{remark}
+    Take note that the vector cross product is only generally defined in three dimensions (and seven, but that's beyond the scope of this course).
+\end{remark}
+
+\begin{example}
+    Find the cross product of $\vec{u} = \left<4, 3, 1\right>$ and $\vec{v} = \left<5, -7, 2\right>$.
+
+    \begin{soln}
+        Using our above definition, we see that
+        \begin{align*}
+            \vec{u} \times \vec{v} &= \det \begin{bmatrix}
+                \hat{\imath} & \hat{\jmath} & \hat{k} \\
+                4 & 3 & 1 \\
+                5 & -7 & 2
+            \end{bmatrix} \\
+            &= \left<3 \cdot 2 - (-7) \cdot 1, -4 \cdot 2 + 5 \cdot 1, 4 \cdot (-7) - 5 \cdot 3\right> \\
+            &= \left<13, -3, -43\right>.
+        \end{align*}
+    \end{soln}
+\end{example}
+
+\begin{remark}
+    Another important note is that the cross product always returns a vector that is perpendicular to both input vectors (unless they are parallel, in which the zero-vector is returned).
+\end{remark}
+
+\begin{exercise}
+    Prove that the cross product from the example above is perpendicular to both input vectors.
+\end{exercise}
+
+\begin{exercise}
+    Prove that in general, the cross product returns a perpendicular vector to both input vectors.
+\end{exercise}
+
+Going back to the above definition of a cross product, we can arrive at a trigonometric association for the cross product that is similar to the one established for the dot product.
+
+\begin{proposition}
+    Two vectors $\vec{u} = \left<a_{1}, a_{2}, a_{3}\right>$ and $\vec{v} = \left<b_{1}, b_{2}, b_{3}\right>$ satisfy
+    \[\magnitude{\vec{u} \times \vec{v}} = \magnitude{\vec{u}} \magnitude{\vec{v}} \sin\theta\]
+    where $\theta$ is the angle between $\vec{u}$ and $\vec{v}$.
+\end{proposition}
+
+In the beginning, I note that the cross product has slightly different multiplicative properties than the dot product. Because of this, I list the specific properties below.
+
+\begin{itemize}
+    \item \textbf{Anticommutivity:} $\vec{a} \times \vec{b} = -(\vec{a} \times \vec{b})$.
+    \item \textbf{Scalar Multiplication:} $(k\vec{a}) \times \vec{b} = \vec{a} \times (k\vec{b}) = k(\vec{a} \times \vec{b})$.
+    \item \textbf{Distributivity:} $\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}$.
+    \item \textbf{Non-Associativity:} In general, $(\vec{a} \times \vec{b}) \times \vec{c} \neq \vec{a} \times (\vec{b} \times \vec{c})$.
+\end{itemize}
+
+Now, we explore an example that utilizes the trigonometric representation above. As we go through, we must keep in mind the properties above.
+
+\begin{example}[Volume of a Parallelepiped]
+    Prove that the volume of a parallelepiped is
+    \[V = \vec{u} \cdot (\vec{v} \times \vec{w})\]
+    where the vectors represent the three sets of parallel sides.
+
+    \begin{proof}
+        Rearranging the above we have
+        \begin{align*}
+            V &= \magnitude{\vec{u}} \magnitude{\vec{v} \times \vec{w}} \cos\theta \\
+            &= \magnitude{\vec{u}} \magnitude{\vec{v}} \magnitude{\vec{w}} \cos\theta \sin\alpha
+        \end{align*}
+        where $\theta$ is the angle between $\vec{u}$ and the altitude $h$ between the bases determined by sides in the directions of $\vec{v}$ and $\vec{w}$ and $\alpha$ is the angle between $\vec{v}$ and $\vec{w}$. It is easy to see that $h = \magnitude{\vec{u}}\cos\theta$ and the area of the base $b = \magnitude{\vec{v}} \magnitude{\vec{w}} \sin\alpha$. So we attain $V = bh$, the standard volume formula.
+    \end{proof}
+\end{example}
+
+Lines in 3-dimensional space are not written in the same way that they are in two-dimensional space. In fact, they must be paramaterized.
+
+\begin{definition}
+    A line in $\RR_{3}$ space is written in the form $\vec{p} + t\vec{u}$ where $\vec{p}$ represents a position vector, $\vec{u}$ represents a direction vector, and $t$ is a varied parameter.
+\end{definition}
+
+\begin{remark}
+    Often, $\vec{u}$ in the above is a unit vector, but this is not necessary.
+\end{remark}
+
+
+
+\end{document}
