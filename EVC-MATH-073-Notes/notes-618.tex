@@ -14,7 +14,7 @@
 
 \section{Description}
 
-Continued look at vectors.
+Continued look at vectors and an intro to Jacobians because the professor mentioned it.
 
 \section{Notes}
 
@@ -115,5 +115,35 @@ Lines in 3-dimensional space are not written in the same way that they are in tw
         \[d = \abs{\vectorproj{\vec{v}}{\vec{u}}} = \frac{\abs{\vec{u} \cdot \vec{v}}}{\magnitude{\vec{v}}}.\]
     \end{soln}
 \end{example}
+
+Now that's the end of all the main material that was covered in class, but the professor also brought up the topic of Jacobians, so I include them here. In essence, the Jacobian is a matrix that approximates how a vector-valued function changes at a point. A rigorous definition is below.
+
+\begin{definition}[The Jacobian Matrix]
+    A function $f : \RR_{n} \to \RR_{m}$ has Jacobian matrix
+    \[J = \begin{bmatrix}
+        \frac{\partial f_{1}}{\partial x_{1}} & \cdots & \frac{\partial f_{1}}{\partial x_{n}} \\
+        \vdots & & \vdots \\
+        \frac{\partial f_{m}}{\partial x_{1}} & \cdots & \frac{\partial f_{m}}{\partial x_{n}}
+    \end{bmatrix}.\]
+\end{definition}
+
+While rigorous, the above definition is likely a bit overkill for what we may cover in the class. So, just in case, I include a simpler example.
+
+\begin{example}[A Simple Jacobian]
+    Given a function $f(x, y, z) = xyz + x^{2}y^{2}z^{2}$, find its Jacobian matrix.
+
+    \begin{soln}
+        We know that the Jacobian matrix is
+        \[J = \begin{bmatrix}
+            \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z}
+        \end{bmatrix}\]
+        from our definition above. What's left is to calculate the partial derivatives, yielding an answer of
+        \[J = \begin{bmatrix}
+            yz + 2xy^{2}z^{2} & xz + 2x^{2}yz^{2} & xy + 2x^{2}y^{2}z
+        \end{bmatrix}.\]
+    \end{soln}
+\end{example}
+
+
 
 \end{document}
