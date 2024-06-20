@@ -18,7 +18,7 @@ Continued look at vectors.
 
 \section{Notes}
 
-Aside from the dot product, there is one more product to consider between vectors. This, of course, is the cross product, an operation that results in a vector output and does not follow the typical rules of multiplication that the cross product follows. For example, $\vec{a} \times \vec{b} \neq \vec{b} \times \vec{a}$ in most cases. In fact, $\vec{a} \times \vec{b} = -(\vec{b} \times \vec{a})$.
+Aside from the dot product, there is one more product to consider between vectors. This, of course, is the cross product, an operation that results in a vector output and does not follow the typical rules of multiplication that the dot product follows.
 
 \begin{definition}[Vector Cross Product]
     In $\RR_{3}$ space, the cross product of $\vec{u} = \left<a_{1}, a_{2}, a_{3}\right>$ and $\vec{v} = \left<b_{1}, b_{2}, b_{3}\right>$ is
@@ -75,7 +75,7 @@ In the beginning, I note that the cross product has slightly different multiplic
     \item \textbf{Non-Associativity:} In general, $(\vec{a} \times \vec{b}) \times \vec{c} \neq \vec{a} \times (\vec{b} \times \vec{c})$.
 \end{itemize}
 
-Now, we explore an example that utilizes the trigonometric representation above. As we go through, we must keep in mind the properties above.
+Now, we explore an example that utilizes the trigonometric representation above.
 
 \begin{example}[Volume of a Parallelepiped]
     Prove that the volume of a parallelepiped is
@@ -102,6 +102,18 @@ Lines in 3-dimensional space are not written in the same way that they are in tw
     Often, $\vec{u}$ in the above is a unit vector, but this is not necessary.
 \end{remark}
 
+\begin{theorem}[Distance between a Point and a Line in 3D]
+    Given an arbitrary point $P$ in $\RR_{3}$ space not on line $\ell$ and a point $Q$ on $\ell$, let the vector from $P$ to $Q$ be $\vec{u}$ and $\vec{v}$ be a vector parallel to $\ell$. The shortest distance from $P$ to $\ell$ is
+    \[d = \frac{\magnitude{\vec{u} \times \vec{v}}}{\magnitude{\vec{v}}}.\]
+\end{theorem}
 
+\begin{example}[Distance between a Point and a Plane in 3D]
+    Find a general formula for the distance between a point and a plane not containing that point in $\RR_{3}$ space.
+
+    \begin{soln}
+        Let our point be $P$ and let $Q$ be an arbitrary point on plane $\mathcal{P}$. Let $\vec{u}$ be the vector from $P$ to $Q$ and let $\vec{v}$ be a vector parallel to the normal vector of $\mathcal{P}$. It follows that the distance is the magnitude of the projection of $\vec{u}$ onto $\vec{v}$, which is defined by
+        \[d = \abs{\vectorproj{\vec{v}}{\vec{u}}} = \frac{\abs{\vec{u} \cdot \vec{v}}}{\magnitude{\vec{v}}}.\]
+    \end{soln}
+\end{example}
 
 \end{document}
