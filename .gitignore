@@ -4,7 +4,6 @@
 *.out
 *.pre
 *.asy
-*.pdf
 *.png
 *.fdb_latexmk
 *.fls

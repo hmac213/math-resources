@@ -1,11 +1,6 @@
-\documentclass[11pt]{scrartcl}
+\chapter{June 18, 2024}
 
-\usepackage[sexy]{evan}
-\usepackage{parskip}
-
-\begin{document}
-
-\section{June 18, 2024}
+\section{Cross Products}
 
 Aside from the dot product, there is one more product to consider between vectors. This, of course, is the cross product, an operation that results in a vector output and does not follow the typical rules of multiplication that the dot product follows.
 
@@ -39,13 +34,17 @@ Aside from the dot product, there is one more product to consider between vector
     Another important note is that the cross product always returns a vector that is perpendicular to both input vectors (unless they are parallel, in which the zero-vector is returned).
 \end{remark}
 
-\begin{exercise}
-    Prove that the cross product from the example above is perpendicular to both input vectors.
-\end{exercise}
+\begin{example}
+    Prove that in general, the cross product returns an orthogonal vector to both input vectors.
 
-\begin{exercise}
-    Prove that in general, the cross product returns a perpendicular vector to both input vectors.
-\end{exercise}
+    \begin{proof}
+        Let vector $\vec{u} = \left<a_{1}, a_{2}, a_{3}\right>$ and $\vec{v} = \left<b_{1}, b_{2}, b_{3}\right>$. From our original definition of the cross product we derive that
+        \[\vec{u} \times \vec{v} = \left<a_{2}b_{3} - a_{3}b_{2}, a_{3}b_{1} - a_{1}b_{3}, a_{1}b_{2} - a_{2}b_{1}\right>.\]
+        Now consider $\vec{u} \cdot (\vec{u} \times \vec{v})$, which we wish to show is zero. It follows that
+        \[\vec{u} \cdot (\vec{u} \times \vec{v}) = a_{1}a_{2}b_{3} - a_{1}a_{3}b_{2} + a_{2}a_{3}b_{1} - a_{1}a_{2}b_{3} + a_{1}a_{3}b_{2} - a_{2}a_{3}b_{1}.\]
+        Miraculously, all the terms cancel out. Without loss of generality, we apply the same logic to $\vec{v}$ and we are done.
+    \end{proof}
+\end{example}
 
 Going back to the above definition of a cross product, we can arrive at a trigonometric association for the cross product that is similar to the one established for the dot product.
 
@@ -81,7 +80,9 @@ Now, we explore an example that utilizes the trigonometric representation above.
     \end{proof}
 \end{example}
 
-Lines in 3-dimensional space are not written in the same way that they are in two-dimensional space. In fact, they must be paramaterized.
+\section{Lines}
+
+Lines in 3-dimensional space are not written in the same way that they are in two-dimensional space. In fact, they must be paramaterized or written using symmetric equation (which we get to later).
 
 \begin{definition}
     A line in $\RR_{3}$ space is written in the form $\vec{p} + t\vec{u}$ where $\vec{p}$ represents a position vector, $\vec{u}$ represents a direction vector, and $t$ is a varied parameter.
@@ -104,6 +105,8 @@ Lines in 3-dimensional space are not written in the same way that they are in tw
         \[d = \abs{\vectorproj{\vec{v}}{\vec{u}}} = \frac{\abs{\vec{u} \cdot \vec{v}}}{\magnitude{\vec{v}}}.\]
     \end{soln}
 \end{example}
+
+\section{The Jacobian}
 
 Now that's the end of all the main material that was covered in class, but the professor also brought up the topic of Jacobians, so I include them here. In essence, the Jacobian is a matrix that approximates how a vector-valued function changes at a point. A rigorous definition is below.
 
@@ -133,4 +136,6 @@ While rigorous, the above definition is likely a bit overkill for what we may co
     \end{soln}
 \end{example}
 
-\end{document}
+\begin{remark}
+    Now, we have not yet gone over partial derivatives. However, to evaluate them you only must consider change in one variable. The derivative rules from previous calculus classes still apply, but all other variables are treated as constants.
+\end{remark}

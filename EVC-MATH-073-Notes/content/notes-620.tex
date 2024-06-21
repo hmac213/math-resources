@@ -1,11 +1,6 @@
-\documentclass[11pt]{scrartcl}
+\chapter{June 20, 2024}
 
-\usepackage[sexy]{evan}
-\usepackage{parskip}
-
-\begin{document}
-
-\section{June 20, 2024}
+\section{More Lines}
 
 Lines are always defined using a point and a direction. For example, standard $\RR_{2}$ lines are written in the form $y = mx + b$, where $(0, b)$ is a point on the line and $m$ represents the slope, or direction. However, lines in $\RR_{3}$ space and higher spaces cannot be defined with one simple equation only containing scalar inputs. In the last class, we gave the definition of a line $\ell : \vec{p} + t\vec{u}$. However, lines can also be written as a collection of parametric equations as seen in the example below.
 
@@ -61,16 +56,18 @@ For the next two propositions consider distinct lines $\ell_{1} : \vec{p}_{1} + 
     \end{soln}
 \end{example}
 
+\section{Planes}
+
 Now, we move to planes. In previous notes, we deduced the equation of a plane, but let's prove why.
 
 \begin{example}[Equation of a Plane]
     Find, with proof, the equation of a plane in $\RR_{3}$.
 
-    \begin{proof}
-        Let plane $\mathcal{P}$ have a normal vector $\vec{u} = \left<a, b, c\right>$. Also, define a vector $\vec{v} = \left<x - x_{0}, y - y_{0}, z - z_{0}\right>$ be a vector from a fixed point in $\mathcal{P}$ to any arbitrary point in $\mathcal{P}$. Since $\vec{u}$ is a normal vector to $\mathcal{P}$, we know that $\vec{u} \perp \vec{v}$. So,
+    \begin{soln}
+        Let plane $\mathcal{P}$ have a normal vector $\vec{u} = \left<a, b, c\right>$. Also, define a vector $\vec{v} = \left<x - x_{0}, y - y_{0}, z - z_{0}\right>$ from a fixed point in $\mathcal{P}$ to any arbitrary point in $\mathcal{P}$. Since $\vec{u}$ is a normal vector to $\mathcal{P}$, we know that $\vec{u} \perp \vec{v}$. So,
         \[\vec{u} \cdot \vec{v} = a(x - x_{0}) + b(y - y_{0}) + c(z - z_{0}) = 0.\]
         Since $\vec{v}$ represents a vector to any arbitrary point in $\mathcal{P}$, we have the equation of the plane.
-    \end{proof}
+    \end{soln}
 \end{example}
 
 \begin{example}
@@ -100,5 +97,3 @@ Now, we move to planes. In previous notes, we deduced the equation of a plane, b
         We thus conclude that $\ell \parallel \mathcal{P}$.
     \end{soln}
 \end{example}
-
-\end{document}
