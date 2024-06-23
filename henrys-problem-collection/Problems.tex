@@ -1,0 +1,122 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{Extra Problems}
+\author{Henry McNamara}
+
+\begin{document}
+
+\section{Geometry}
+
+\begin{problem}[14-15]
+    Find the least integer $R$ such that there exist at least 10 unique triangles with integer sidelengths whose circumradius is equal to $R$.
+\end{problem}
+
+\begin{problem}
+    Triangle $ABC$ has sidelengths $AB = 4$, $BC = 3$, and $AC = 5$. The $A$-excircle of $ABC$ intersects the circumcircle of $ABC$ at points $M$ and $N$. Find $MN$.
+\end{problem}
+
+\begin{problem}[11-15]
+    Triangle $ABC$ has sidelengths $AB = 7$, $BC = 9$, and $AC = 10$. Distinct points $P$, $Q$, and $R$ are colinear and lie on lines $AB$, $AC$, and $BC$ respectively. If $PQ = QR$, find $PR$.
+\end{problem}
+
+\begin{problem}[5]
+    An ant is placed at a random point on a right square pyramid whose sidelengths are all equal to $4$. The probability that the ant has to travel farther along the surface to reach the center of the base than the top of the pyramid is $\frac{a + \sqrt{b}}{c}$ for positive integers $a$, $b$, and $c$, where $b$ is not divisible by the square of any prime. Find $a + b + c$.
+\end{problem}
+
+\begin{problem}
+    Spheres $\omega_{1}$, $\omega_{2}$, and $\omega_{3}$ have radii $3$, $4$, and $5$ respectively. The center of $\omega_{1}$ is $O_{1}$ and the centers of $\omega_{2}$ and $\omega_{3}$ are defined analogously. If $O_{1}O_{2} = 4$, $O_{1}O_{3} = 5$, and $O_{2}O_{3} = 7$, find the distance between the two points where all three spheres intersect.
+\end{problem}
+
+\begin{problem}
+    A circle is inscribed in quadrilateral $ABCD$ with $AB = 4$ and $CD = 5$. Find the maximum possible area of $ABCD$.
+\end{problem}
+
+\begin{problem}
+    A circle with radius 5 is inscribed in a quadrilateral. Find the minimum possible area of such a quadrilateral.
+\end{problem}
+
+\section{Algebra}
+
+\begin{problem}
+    John picks a random integer between 1 and 1000 inclusive. Jen attempts to guess the number. Each turn, she says an integer and John will either tell her that his number is higher, lower, or that she got it correct. Assuming Jen guesses optimally, find the expected number of guesses until she correctly identifies John's number.
+\end{problem}
+
+\begin{problem}
+    For certain real numbers $a$,
+    \[x\floor{x} = ax^{2}\]
+    has $100$ solutions. (Manipulate some answer out of this about the real values of $a$).
+\end{problem}
+
+\begin{problem}[1 - 2]
+    For all integers $n$ between $-20$ and $20$, inclusive, let $f_{n}(x)$ be a parabola congruent to $y = x^{2}$ with vertex at $(n, n^{2})$. In how many points do at least two of these parabolas intersect?
+\end{problem}
+
+\begin{problem}
+    Let $\omega \neq 1$ be a solution to $x^{3} = 1$. For some polynomial $P(x)$ with finite degree,
+    \[P(x - \omega)P(x - \omega^{2})P(x - \omega^{3}) = P(x^{3} - 1).\]
+    Find the sum of all possible values of $P(1)$.
+\end{problem}
+
+\begin{problem}
+    Positive real numbers $a$, $b$, and $c$ satisfy $a + b + c = 2024$. Find the minimum possible value of
+    \[\frac{a + b}{1 - ab} + \frac{a + c}{1 - ac} + \frac{b + c}{1 - bc}.\]
+\end{problem}
+
+\section{Number Theory}
+
+\begin{problem}[7 - 8]
+    Find the smallest positive integer $k$ such that
+    \[\frac{n^{2} + k}{n + 24}\]
+    is an integer for at least $12$ positive integer values of $n$.
+\end{problem}
+
+\begin{problem}
+    For any positive integer $n$, define
+    \[S_{n} = 1^{3} + 2^{3} + \cdots + n^{3}.\]
+    For how many pairs $(a,b)$ with $a > b$ is $S_{a} - S_{b}$ divisible by both $a$ and $b$?
+\end{problem}
+
+\section{Combinatorics}
+
+\begin{problem}
+    Jen selects a random two-digit integer to place on a lottery ticket. A string of 100 random digits is generated and if Jen's number appears in any base $b$ between 2 and 10 at some point in the sequence, then she wins. What is the probability she wins?
+\end{problem}
+
+\begin{problem}[8-12]
+    Crosby plays a game of chess at least once per day, but no more than $20$ times in any span of $14$ consecutive days. After $10$ weeks, Crosby decides he no longer likes Chess and stops playing. Find the sum of all values $n$ such that Crosby must have played exactly $n$ games of chess over some consecutive string of days.
+\end{problem}
+
+\begin{problem}
+    John rolls a fair six-sided die. If he rolls a $6$, he adds a blue coin to a pile that begins empty. If he rolls any other number, he passes the die to Jim. If Jim rolls a $1$ or a $2$, then he adds a red coin to the pile. Again, if he rolls any other number, he passes the die back to John. They play this game until three coins of the same color are placed in the pile consecutively. The probability that John wins can be written as $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$.
+\end{problem}
+
+\begin{problem}
+    John and Jim play a game where they take turns. John rolls a fair six-sided die to start. If he rolls a $1$, the game is over and he wins. Othersise, he passes the die to Jim. From here on out, if a player rolls a divisor of the previous number rolled (including that number), then they win. The probability that John wins is $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$.
+\end{problem}
+
+\begin{problem}
+    Let $S_{n} = \{1, 2, \dots, n\}$ and let $A_{n}$ and $B_{n}$ be subsets of $S_{n}$. Define $f(n)$ as the expected value of $\abs{A_{n} \cup B_{n}}$ across all possible pairs $(A_{n},B_{n})$, including the empty set. Find
+    \[\sum_{k = 2}^{100} f(k).\]
+\end{problem}
+
+\begin{problem}
+    Let
+    \[S_{n} = \sum \abs{A \cup B},\]
+    where the sum is taken over all $(A,B)$ with both $A$ and $B$ being subsets of $\{1, 2, \dots, n\}$ such that
+    \[\sum_{a \in A} a = \sum_{b \in B} b.\]
+    Find $S_{2024}$.
+\end{problem}
+
+\begin{problem}
+    Find, with proof, all positive integers $n$ such that there does not exist any ordered sets of positive integers $(a, b, c, d)$ satisfying $ab = cd$ and $a + b + c + d = n$.
+\end{problem}
+
+\section{Miscellaneous}
+
+\end{document}

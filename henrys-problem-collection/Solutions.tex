@@ -1,0 +1,320 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[sexy]{evan}
+\usepackage[parfill]{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\begin{document}
+
+\section{Geometry}
+
+\begin{problem}
+    Find the least integer $R$ such that there exist at least 10 unique triangles with integer sidelengths whose circumradius is equal to $R$.
+\end{problem}
+
+From
+\[R = \frac{abc}{4K},\]
+we use Heron's Formula to deduce
+\[4\sqrt{s(s - a)(s - b)(s - c)} \mid abc\]
+\[(a + b + c)(a + b - c)(a + c - b)(b + c - a) \cdot n^{2} = (abc)^{2}\]
+for some integer $n$. So, the expression must satisfy two conditions:
+\[(a + b + c)(a + b - c)(a + c - b)(b + c - a) \mid (abc)^{2}\]
+and
+\[(a + b + c)(a + b - c)(a + c - b)(b + c - a)\]
+is a perfect square. We proceed with casework on the first condition. We begin with
+\[a + b + c \mid (abc)^{2} \implies ak + bk + ck = (abc)^{2}\]
+
+\begin{problem}
+    Triangle $ABC$ has sidelengths $AB = 4$, $BC = 3$, and $AC = 5$. The $A$-excircle of $ABC$ intersects the circumcircle of $ABC$ at points $M$ and $N$. Find $MN$.
+\end{problem}
+
+\vspace{-\baselineskip}\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \begin{asy}
+        size(8cm);
+
+        pair A,B,C,O,D,M,N,P1,P2;
+        B = origin;
+        C = (3,0);
+        A = (0,4);
+        O = (1.5,2);
+        D = (2,-2);
+        path c1 = circle(A,B,C);
+        path c2 = circle(D,2);
+        pair[] MN;
+        MN = intersectionpoints(circle(A,B,C),circle(D,2));
+        real s1, s2, s3, s4;
+        s1 = 0;
+        s2 = 1;
+        s3 = 3/5;
+        s4 = 4/5;
+        P1 = (2*s1,-2*s2);
+        P2 = C + (s3,-s4);
+
+        draw(A -- B -- C -- cycle, RGB(63,159,255));
+        draw(c1, RGB(63,159,255));
+        draw(c2, RGB(63,159,255));
+        draw(MN[0] -- MN[1], red);
+        draw(B -- P1, dashed+RGB(63,159,255));
+        draw(C -- P2, dashed+RGB(63,159,255));
+
+        dot("$A$",A,dir(90));
+        dot("$B$",B,dir(180));
+        dot("$C$",C,dir(0));
+        dot("$O$",O,dir(90));
+        dot("$I_{A}$",D,S);
+        dot("$M$",MN[0],W);
+        dot("$N$",MN[1],E);
+        dot("$P$",P1,W);
+        dot("$Q$",P2,E);
+    \end{asy}
+\end{center}
+
+\begin{problem}[11-15]
+    Triangle $ABC$ has sidelengths $AB = 7$, $BC = 9$, and $AC = 10$. Distinct points $P$, $Q$, and $R$ are colinear and lie on lines $AB$, $AC$, and $BC$ respectively. If $PQ = QR$, find $PR$.
+\end{problem}
+
+\begin{center}
+    \begin{asy}
+        size(8cm);
+        pair A,B,C,D,P,Q,R;
+        path c1,c2,cABC;
+
+        c1 = circle(A,10);
+        c2 = circle(B,9);
+
+        A = origin;
+        B = (7,0);
+        C = intersectionpoints(c1,c2,0);
+
+        cABC = circle(A,B,C);
+        
+
+    \end{asy}
+\end{center}
+
+\begin{problem}
+    An ant is placed at a random point on a right square pyramid whose sidelengths are all equal to $4$. The probability that the ant has to travel farther along the surface to reach the center of the base than the top of the pyramid is $\frac{a + \sqrt{b}}{c}$ for positive integers $a$, $b$, and $c$, where $b$ is not divisible by the square of any prime. Find $a + b + c$.
+\end{problem}
+
+Represent the pyramid with a net. By symmetry, we only need to consider a quarter of the net. Let the center of the base be $C$ and the top of the pyramid be $P$.
+\begin{center}
+    \begin{asy}
+        size(8cm);
+        pair A,B,C,D,E,F;
+        real n = 2 * (1 + sqrt(3))/(2*sqrt(3));
+        A = origin;
+        B = (2,2);
+        D = (-2,2);
+        C = D + 4*dir(60);
+        E = (-n,1 + sqrt(3));
+        F = (n,1 + sqrt(3));
+
+        draw(A -- B -- C -- D -- cycle, RGB(63,159,255));
+        draw(E -- F, dashed+RGB(63,159,255));
+
+        dot("$C$",A,dir(-90));
+        dot("$P$",C,dir(90));
+    \end{asy}
+\end{center}
+The dashed line, which we call $\ell$, represents the locus of points equidistant from $C$ and $P$. So, all points above $\ell$ satisfy the conditions of the problem. Note that $CP = 2 + 2\sqrt{3}$, which means that the distance from $\ell$ to $P$ is $1 + \sqrt{3}$. The desired probability is the area of the equilateral triangle whose base is $\ell$ divided by the total area of the figure. First, we calculate the area of the equilateral triangle, which is
+\[A = \frac{(1 + \sqrt{3})^{2}}{\sqrt{3}} = \frac{6 + 4\sqrt{3}}{3}.\]
+Now, the area of the entire figure is
+\[A_{tot} = 4 + 4\sqrt{3}.\]
+The final probability is then
+\[\frac{A}{A_{tot}} = \frac{6 + 4\sqrt{3}}{12 + 12\sqrt{3}} = \frac{3 + \sqrt{3}}{12}.\]
+So, our final answer is $3 + 3 + 12 = \boxed{018}$.
+
+\begin{problem}
+    A circle is inscribed in quadrilateral $ABCD$ with $AB = 4$ and $CD = 5$. Find the maximum possible area of $ABCD$.
+\end{problem}
+
+Let $BC = x$, and $AD = y$. In a tangential quadrilateral, the sum of opposite sides is the same. So,
+\[x + y = 9.\]
+Since the area of the quadrilateral can be calculated using
+\[A = sr,\]
+we aim to maximize the radius of its incricle. Define $a$, $b$, $c$, and $d$ so that
+\[a + b = 4\]
+\[b + c = x\]
+\[c + d = 5\]
+\[a + d = y.\]
+
+\begin{problem}
+    A circle with radius 5 is inscribed in a quadrilateral. Find the minimum possible area of such a quadrilateral.
+\end{problem}
+
+\section{Algebra}
+
+\begin{problem}
+    For certain real numbers $a$,
+    \[x\floor{x} = ax^{2}\]
+    has $100$ solutions. Find the sum of all such $a$.
+\end{problem}
+
+Simplify the equation to
+\[\floor{x} = ax,\]
+noting that $x = 0$ is a solutions for all $a$. Notice that
+\[ax \leq x < ax + 1.\]
+If $x$ is positive, the left side tells us
+\[a \leq 1\]
+and the right,
+\[(1 - a)x < 1.\]
+Now, for any positive integer $n$, there can be at most one solution in the interval $\left[n, n + 1\right)$
+
+\begin{problem}
+    For all integers $n$ between $-20$ and $20$, inclusive, let $f_{n}(x)$ be a parabola congruent to $y = x^{2}$ with vertex at $(n, n^{2})$. In how many points do at least two of these parabolas intersect?
+\end{problem}
+
+Every parabola is of the form $x^{2} + ax + b$ for some real numbers $a$ and $b$. So, the difference between any two parabolas is a linear equation with exactly one solution. It is easy to show that no three or more parabolas intersect at one point. Thus, there are a total of
+\[{41 \choose 2} = \boxed{820}\]
+solutions.
+
+\begin{problem}
+    For all integers $n$ between $-20$ and $20$, inclusive, let $f_{n}(x) = \frac{1}{n}(x - n)^{2} + n^{2}$. In how many points do at least two of these parabolas intersect.
+\end{problem}
+
+Expanding out, we see that
+\[f_{n}(x) = \frac{x^{2}}{n} - 2x + n + n^{2}.\]
+Two parabolas $f_{j}(x)$ and $f_{k}(x)$ intersect when
+\[\frac{x^{2}}{j} + j + j^{2} = \frac{x^{2}}{k} + k + k^{2}\]
+\[x^{2}\left(\frac{1}{k} - \frac{1}{j}\right) = (j - k)(j + k + 1)\]
+\[x^{2} = jk(j + k + 1).\]
+WLOG, we let $\abs{j} > k$ and iterate through the four possible cases.
+
+\textbf{Case 1:}
+
+If both $j$ and $k$ are positive, then the parabolas will intersect in two points.
+
+\textbf{Case 2:}
+
+If both $j$ and $k$ are negative, then the parabolas will not intersect.
+
+\textbf{Case 3:}
+
+If $j$ is positive and $k$ is negative, then the parabolas will not intersect.
+
+\textbf{Case 4:}
+
+If $j$ is negative and $k$ is positive, then the parabolas
+
+\begin{problem}
+    Let $\omega \neq 1$ be a solution to $x^{3} = 1$. For some polynomial $P(x)$ with finite degree,
+    \[P(x - \omega)P(x - \omega^{2})P(x - \omega^{3}) = P(x^{3} - 1).\]
+    Find the sum of all possible values of $P(1)$.
+\end{problem}
+
+\begin{claim}
+    $x = 0$ is a root of $P(x)$.
+\end{claim}
+
+\begin{proof}
+    Assume that $x \vert P(x)$. We let $P(x) = xQ(x)$, which makes
+    \[(x^{3} - 1)Q(x - \omega)Q(x - \omega^{2})Q(x - \omega^{3}) = (x^{3} - 1)Q(x^{3} - 1),\]
+\end{proof}
+
+\begin{problem}
+    Positive real numbers $a$, $b$, and $c$ satisfy $a + b + c = 2024$. Find the minimum possible value of
+    \[\frac{a + b}{1 - ab} + \frac{a + c}{1 - ac} + \frac{b + c}{1 - bc}.\]
+\end{problem}
+
+Let $a = \tan\alpha$, $b = \tan\beta$, and $c = \tan\theta$. So, we have that
+\[\tan\alpha + \tan\beta + \tan\theta = 2024,\]
+and we want to minimize
+\[\frac{\tan\alpha + \tan\beta}{1 - \tan\alpha\tan\beta} + \frac{\tan\alpha + \tan\theta}{1 - \tan\alpha\tan\theta} + \frac{\tan\beta + \tan\theta}{1 - \tan\beta\tan\theta} = \tan(\alpha + \beta) + \tan(\alpha + \theta) + \tan(\beta + \theta).\]
+
+\section{Number Theory}
+
+\begin{problem}
+    Find the smallest positive integer $k$ such that
+    \[\frac{n^{2} + k}{n + 24}\]
+    is an integer for at least $12$ positive integer values of $n$.
+\end{problem}
+
+From the Euclidean Algorithm,
+\[\gcd(n^{2} + k, n + 24) = \gcd(k - 24n, n + 24) = \gcd(k + 576, n + 24).\]
+So,
+\[n + 24 \mid k + 576.\]
+The smallest $k$ such that $576 + k$ has $16$ divisors greater than $24$ will satisfy the answer.
+
+\begin{claim*}
+    The minimal value of $k$ is $k = 24$.
+\end{claim*}
+
+It is easy to verify that $k = 24$ works. Notice that all integers $j$ between $577$ and $599$, inclusive, will have half of their divisors be less than $24$ and half more than $24$ because $24 < \sqrt{j} < 25$.
+
+\begin{problem}
+    For any positive integer $n$, define
+    \[S_{n} = 1^{3} + 2^{3} + \cdots + n^{3}.\]
+    For how many pairs $(a,b)$ with $a > b$ is $S_{a} - S_{b}$ divisible by both $a$ and $b$?
+\end{problem}
+
+For any $k$,
+\[S_{k} = \left(\frac{k(k + 1)}{2}\right)^{2}.\]
+So,
+\[S_{a} - S_{b} &= \left(\frac{a(a + 1)}{2}\right)^{2} - \left(\frac{b(b + 1)}{2}\right)^{2}.\]
+We begin with divisibility by $a$. We must have
+\[a \mid \left(\frac{b(b + 1)}{2}\right)^{2}.\]
+So, we first let $a = ku$ and $b = kv$. It follows that
+\[ku \mid \left(\frac{kv(kv + 1)}{2}\right)^{2}\]
+\[u \mid \left(\right)\]
+
+\section{Combinatorics}
+
+\begin{problem}
+    Crosby plays a game of chess at least once per day, but no more than $20$ times in any span of $14$ consecutive days. After $10$ weeks, Crosby decides he no longer likes Chess and stops playing. Find the sum of all values $n$ such that Crosby must have played exactly $n$ games of chess over some consecutive string of days.
+\end{problem}
+
+Let $c_{j}$ be the cumulative number of chess games played after $j$ days. We have that
+\[c_{1} < c_{2} < c_{3} < \cdots < c_{70} \leq 100\]
+and
+\[c_{1} + n < c_{2} + n < c_{3} + n < \cdots < c_{70} + n \leq 100 + n .\]
+Now, we have $140$ values, all of which are at most $100 + n$. By the Pigeonhole Principle, if $100 + n \leq 139$, then such a string must exist. So, our desired answer is $\boxed{780}$.
+
+\begin{problem}
+    John rolls a fair six-sided die. If he rolls a $6$, he adds a blue coin to a pile that begins empty. If he rolls any other number, he passes the die to Jim. If Jim rolls a $1$ or a $2$, then he adds a red coin to the pile. Again, if he rolls any other number, he passes the die back to John. They play this game until three coins of the same color are placed in the pile consecutively. The probability that John wins can be written as $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$.
+\end{problem}
+
+Let the probability of John and Jim winning, respectively, be $p_{a}$ and $p_{b}$. We have that
+\[p_{a} + p_{b} = 1.\]
+The probability that John wins is then
+\[p_{a} = \frac{1}{216} + \frac{215}{216}(1 - p_{a}).\]
+So,
+\[\frac{431}{216}p_{a} = 1 \implies p_{a} = \frac{216}{431}.\]
+Our final answer is then $\boxed{647}$.
+
+\begin{problem}
+    John and Jim play a game where they take turns. John rolls a fair six-sided die to start. If he rolls a $1$, the game is over and he wins. Othersise, he passes the die to Jim. From here on out, if a player rolls a divisor of the previous number rolled (including that number), then they win. The probability that John wins is $\frac{p}{q}$ for relatively prime positive integers $p$ and $q$. Find $p + q$.
+\end{problem}
+
+Let $p_{k}$ be the probability of winning after $k$ has been rolled. We have
+\[p_{6} = \frac{2}{3} + \frac{1}{6}(p_{4} + p_{5})\]
+\[p_{5} = \frac{1}{3} + \frac{1}{6}(p_{2} + p_{3} + p_{4} + p_{6})\]
+\[p_{4} = \frac{1}{2} + \frac{1}{6}(p_)\]
+
+\begin{problem}
+    Let $S_{n} = \{1, 2, \dots, n\}$ and let $A_{n}$ and $B_{n}$ be subsets of $S_{n}$. Define $f(n)$ as the expected value of $\abs{A_{n} \cup B_{n}}$ across all possible pairs $(A_{n},B_{n})$, including the empty set. Find
+    \[\sum_{k = 2}^{100} f(k).\]
+\end{problem}
+
+We know that
+\[\abs{A_{n} \cup B_{n}} = \abs{A_{n}} + \abs{B_{n}} - \abs{A_{n} \cap B_{n}}.\]
+So, we can find the expected value of each individually. Namely,
+\[\mathbb{E}[\abs{A_{n}}] = \mathbb{E}[\abs{B_{n}}] = \frac{n}{2}\]
+and
+\[\mathbb{E}[\abs{A_{n} \cap B_{n}}] = \frac{n}{4}.\]
+This follows from the probability that each element is in $A_{n}$ or $B_{n}$ being $\frac{1}{2}$, and the probability of being in both as $\frac{1}{4}$. So,
+
+\begin{problem}
+    Let
+    \[S_{n} = \sum \abs{A \cup B},\]
+    where the sum is taken over all $(A,B)$ with both $A$ and $B$ being subsets of $\{1, 2, \dots, n\}$ such that
+    \[\sum_{a \in A} a = \sum_{b \in B} b.\]
+    Find $S_{2024}$.
+\end{problem}
+
+\section{Miscellaneous}
+
+\end{document}
