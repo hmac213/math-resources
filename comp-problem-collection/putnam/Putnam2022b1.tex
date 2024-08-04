@@ -1,0 +1,28 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+\begin{document}
+
+\begin{mdframed}[style=mdpurplebox,frametitle={Problem Statement}]
+    Suppose that $P(x) = a_{1}x + a_{2}x^{2} + \cdots + a_{n}x^{n}$ is a polynomial with integer coefficients, with $a_{1}$ odd. Suppose that $e^{P(x)} = b_{0} + b_{1}x + b_{2}x^{2} + \cdots$ for all $x$. Prove that $b_{k}$ is nonzero for all $k \geq 0$.
+\end{mdframed}
+
+Define a group $G$ as the set of power series written as
+\[\sum_{n = 0}^{\infty}c_{n}\frac{x^{n}}{n!}\]
+for $c_{0} = 1$ and $c_{n} \in \ZZ$ with the operation of formal series multiplication. The set of all such power series with $c_{n} \in 2\ZZ$ for $n \geq 1$, denoted $H$, is a subgroup of $G$.
+
+\begin{claim*}
+    $e^{2x} \in H$.
+\end{claim*}
+\begin{proof}
+    Each $c_{n}$ in the expansion of $e^{2x}$ is of the form $2^{n}$, which for $n \geq 1$, is clearly even.
+\end{proof}
+
+\begin{claim*}
+    $e^{x^{k}} \in H$.
+\end{claim*}
+\begin{proof}
+    
+\end{proof}
+
+\end{document}
